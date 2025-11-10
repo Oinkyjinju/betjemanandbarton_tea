@@ -1,4 +1,446 @@
-*{
-    padding: 0;
-    margin: 0;
+* { 
+    margin:0; 
+    padding:0; 
+    box-sizing:border-box; 
+}
+:root{
+  /* font */
+  --color-pearl:#FCFAF7;
+  --color-tealeaf:#5F7D6B;
+  --color-tea-charcoal:#1F2522;
+  --color-sage-mist:#C9D1CB;
+  --color-plum:#4A2A44;
+  --color-muted: #B9B9B9;
+
+  /* font */
+  --font-title: "Monsieur La Doulaise", "Brush Script MT", "Segoe Script", cursive;
+  --font-body: "Oranienbaum", Georgia, "Times New Roman", Times, serif;
+  --font-description: "Saira Semi Condensed", ui-sans-serif, system-ui, -apple-system,
+                "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+/* descriptoin weight */
+  --description-thin:100;
+  --description-light:300;
+  --description-regular:400;
+  --description-mid:500;
+  --description-semib:600;
+  --description-bold:700;
+}
+
+.hero{
+    width: 100%;
+    padding: 4% 5%;
+    background-image: url("/img/Banniere_AUTOMNE_bis.webp");
+    background-size: cover;
+    background-position: 50% 82%;
+    background-repeat: no-repeat;
+}
+.hero > .cta{
+    width: 100%;
+    font-family: "Monsieur La Doulaise", cursive;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cta_container{
+    width: 100%;
+    height: -webkit-fill-available;
+}
+.cta_container a{
+    height: fit-content;
+    color: var(--color-tea-charcoal);
+    background-color: var(--color-pearl);
+    font: 20px "Oranienbaum", serif;
+    padding: 8px 20px;
+    text-decoration: none;
+}
+.cta_container a:hover{
+    color: var(--color-pearl);
+    background-color: var(--color-plum);
+}
+.cta > .hero_subtitle{
+    font: 400 50px / 1.2 "Oranienbaum", serif;
+    text-shadow: 0px 4px 7px #00000059;
+    color: var(--color-pearl);
+    text-align: right;
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.slide{
+    width: 100%;
+    height: 200px;
+}
+.highlight_nav, .best_seller{
+    padding-top: 5%;
+    margin: 0 5%;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 90%;
+    align-items: baseline;
+}
+.highlight_nav .category, .best_seller span{
+    font: 50px "Monsieur La Doulaise", cursive;
+    color: var(--color-tea-charcoal);
+}
+.highlight_nav a, .best_seller a{
+    font-family: "Oranienbaum", serif;
+    color: var(--color-tea-charcoal);
+    text-decoration: none;
+}
+.highlight_nav a:hover, .best_seller a:hover{
+    color: var(--color-plum);
+}
+.highlight_product .img_container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 50px;
+    margin: 0 5% 5%;
+}
+#autum_selection_img a{
+    position: relative;
+    display: block;
+}
+.autum_info{
+    top: 0;
+    position: absolute;
+    height: 98%;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+    width: 100%;
+}
+.autum_info.show{
+    opacity: 1;
+}
+.autum_info .info_name{
+    color: var(--color-pearl);
+    background-color: var(--color-tealeaf);
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    padding: 10px 15px;
+}
+.autum_info .info_price{
+    color: var(--color-pearl);
+    background-color: var(--color-tealeaf);
+    border-radius: 0 5px 0 5px;
+    padding: 10px 15px;
+    width: fit-content;
+}
+.img_container img{
+    width: 100%;
+    border-radius: 10px;
+}
+.listing_container{
+    display: list-item;
+}
+.listing_container .listing_item{
+    border-top: 1px solid lightgray;
+    padding: 2% 5%;
+    cursor: pointer;
+}
+.listing_container .listing_item:nth-child(4){
+    border-bottom: 1px solid lightgray;
+}
+.listing_item span{
+    font: 35px "Oranienbaum", serif;
+}
+.listing_item a{
+    text-decoration: none;
+    color: var(--color-plum);
+}
+.cursor_hover{
+    position: fixed;
+    pointer-events: none;
+    color: var(--color-tea-charcoal);
+    padding: 6px 12px;
+    font: 400 25px/1.2 "Oranienbaum", serif;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.cursor_hover.show {
+  opacity: 1;
+}
+.cursor_hover img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.story_container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 10% 5% 5%;
+    gap: 50px;
+}
+.story_container .story{
+    display: flex;
+    font-family: "Oranienbaum", serif;
+    flex-direction: column;
+}
+.story .title{
+    font-size: 30px;
+}
+.story .description{
+    height: -webkit-fill-available;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 1.5;
+}
+.story a{
+    font-size: 20px;
+    color: var(--color-tea-charcoal);
+}
+.story_container img{
+    width: 100%;
+    height: 50vh;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: 50% 81%;
+}
+.best_seller_items{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    column-gap: 10px;
+    width: 90%;
+    margin-left: 5%;
+}
+.best_seller_items a>img{
+    width: 100%;
+    object-fit: fill;
+    border-radius: 10px;
+    
+}
+.news_letter{
+    width: 100vw;
+    padding: 3% 5%;
+    background-color: var(--color-tealeaf);
+    color: var(--color-pearl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
+.news_letter span{
+    font-family: "Monsieur La Doulaise", cursive;
+    text-align: center;
+    font-size: 50px;
+}
+.news_letter p{
+    font-family: "Oranienbaum", serif;
+    font-size: 16px;
+}
+.news_letter input#email {
+    width: 30%;
+    height: 35px;
+    border: none;
+    padding: 0 10px;
+    margin: 10px 0;
+}
+.news_letter .submit {
+    padding: 10px 40px;
+    border: none;
+    font: 14px "Oranienbaum", serif;
+    background-color: var(--color-sage-mist);
+}
+
+footer{
+  background-color: var(--color-tea-charcoal);
+  color: var(--color-sage-mist);
+  border-top: 1px solid rgba(255,255,255,.08);
+  font-family: "Oranienbaum", serif;
+}
+footer a{
+  color: var(--color-sage-mist);
+  text-decoration: none;
+}
+footer a:hover{ 
+    color: var(--color-plum); 
+}
+.footer_top{
+  display:grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 40px;
+  padding: 48px 24px 28px;
+}
+.footer_brand .brand_mark{ 
+    display:flex; 
+    flex-direction:column; 
+    gap:6px; margin-bottom:8px; 
+}
+.brand_mark .name{ 
+    font-family: "Monsieur La Doulaise", cursive; 
+    font-size: 28px; line-height: 1; 
+    color: var(--color-pearl); 
+}
+.brand_mark .year{ 
+    font-size: 12px;
+    opacity:.85; 
+}
+.brand_description{ 
+    font-size: 14px; 
+    opacity:.9; 
+    margin: 8px 0 14px; 
+}
+.social{ 
+    display:flex; 
+    gap:12px; 
+}
+.social_media{
+  width:36px; 
+  height:36px; 
+  display:grid; 
+  place-items:center;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--color-sage-mist) 20%, black);
+  color: var(--color-pearl);
+  transition: transform .15s ease, background-color .15s ease;
+}
+.social_media:hover{
+  transform: translateY(-1px);
+  background: color-mix(in oklab, var(--color-sage-mist) 70%, black);
+}
+.footer_og_tea{ 
+    display:grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 24px; 
+}
+.footer_og_name{
+  width:100%; 
+  background: transparent; 
+  border:none; 
+  font: 18px "Monsieur La Doulaise", cursive;
+  color: var(--color-pearl);
+  text-align:left; 
+  font-weight:600; 
+  position: relative;
+  padding-right: 20px; 
+  cursor:pointer;
+}
+.og_list{ 
+    list-style:none; 
+    display:grid; 
+    gap:8px; 
+    padding: 8px 0 0; 
+}
+.og_list a{ 
+    font-size: 14px; 
+    opacity:.95; 
+}
+.og_list a:hover{ 
+    color: var(--color-tealeaf); 
+}
+.footer_bot{
+  display:flex; 
+  gap:16px; 
+  align-items:center; 
+  justify-content:space-between;
+  padding: 16px 24px; 
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.locale select{
+  border:1px solid color-mix(in oklab, var(--color-sage-mist) 30%, black);
+  background: transparent; 
+  color: var(--color-pearl);
+  padding: 8px 10px; 
+  border-radius:8px; 
+  font-size:14px;
+}
+.locale select option{ 
+    color: #000; 
+}
+.legal{ 
+    list-style:none; 
+    display:flex; 
+    gap:16px; 
+    font-size: 13px; 
+}
+.payments{ 
+    display:flex; 
+    gap:10px; 
+    font-size: 24px; 
+    color: var(--color-pearl); 
+    opacity:.9; 
+}
+.footer_legalnote{
+    padding: 12px 24px 28px; 
+    font-size: 12px; 
+    opacity:.8; 
+    text-align:center; 
+}
+
+@media (max-width: 900px){
+.highlight_product .img_container{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.hero{
+    height: 30vh;
+}
+.hero > .cta{
+    height: 100%;
+    align-items: flex-end;
+}
+.cta > .hero_subtitle{
+    height: 80%;
+}
+.cta_container{
+    height: 0;
+}
+.story_container{
+    display: flex;
+    gap: 10px;
+    flex-direction: column-reverse;
+}
+.story_container img{
+    height: 20vh;
+}
+.story a{
+    margin-top: 15px;
+}
+.best_seller_items{
+    grid-template-columns: repeat(3, 1fr);
+}
+.footer_top{ 
+    grid-template-columns: 1fr; 
+}
+.footer_og_tea{ 
+    grid-template-columns: 1fr; 
+}
+.footer_og_name{
+    width: fit-content;
+    padding-right: 50px;
+}
+.footer_og_name::after{
+  content: "";
+  position: absolute;
+  right: 0; 
+  top: 50%;
+  width: 8px; 
+  height: 8px;
+  border-right: 2px solid var(--color-sage-mist);
+  border-bottom: 2px solid var(--color-sage-mist);
+  transform: translateY(-50%) rotate(-45deg); 
+  opacity: .7;
+  transition: transform .18s ease;
+}
+.footer_og_name[aria-expanded="true"]::after{
+  transform: translateY(-50%) rotate(45deg);
+  border-color: var(--color-pearl); 
+  opacity: 1;
+}
+.og_list{ 
+    display: none; 
+}
+.og_list.is-open{ 
+    display: grid; 
+}
 }

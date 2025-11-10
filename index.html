@@ -3,9 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/20dffc9a4f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/nav.css">
+    <script src="/nav.js" defer></script>
+    <script src="/app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Oranienbaum&display=swap" rel="stylesheet">
     <title>Betjeman & Barton</title>
 </head>
+
+<script>
+  class SiteNav extends HTMLElement {
+    async connectedCallback() {
+      const html = await (await fetch('/nav.html')).text();
+      this.innerHTML = html;
+    }
+  }
+  customElements.define('site-nav', SiteNav);
+</script>
+
+<!-- Nav -->
+<site-nav></site-nav>
+
+
 <body>
-    
+    <!-- make it slidable -->
+    <div class="hero">
+        <div class="cta">
+            <!-- change this every 4sec and make 2 of them using JS -->
+            <div class="cta_container">
+                <a href="/item_page.html">Discover</a>
+            </div>
+            <div class="hero_subtitle">A World of Sweetness</div>
+        </div>
+    </div>
+
+    <!-- highlight products -->
+    <div class="highlight_product">
+        <div class="highlight_nav">
+            <span class="category">Autumn Selection</span>
+            <a href="/item_page.html">See all<i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="img_container" id="autum_selection_img">
+          <a href="#" data-name="Autumn Blend" data-price="$12"><img src="/img/2455.webp"></a>
+          <a href="#" data-name="Spiced Chai" data-price="$15"><img src="/img/2470.webp"></a>
+          <a href="#" data-name="Pumpkin Tea" data-price="$18"><img src="/img/2634.webp"></a>
+          <a href="#" data-name="Maple Delight" data-price="$20"><img src="/img/3811.webp"></a>
+      </div>
+    </div>
+
+    <!-- Javascript listing to make mouse hover and show item images  -->
+     <div class="listing_container">
+        <div class="listing_item" id="flavored" data-image="/img/cursor/flavored.webp" data-href="/item_page.html">
+            <span>Our Flavored Tea</span>
+        </div>
+        <div class="listing_item" id="flavored" data-image="/img/cursor/Sous-Categorie_Boites_125g_12036_R_S.webp" data-href="/item_page.html">
+            <span>Grands Crus & Rare Teas</span>
+        </div>
+        <div class="listing_item" id="flavored" data-image="/img/cursor/2871.webp" data-href="/item_page.html">
+            <span>The Iconic Ones</span>
+        </div>
+        <div class="listing_item" id="flavored" data-image="/img/cursor/christmas.webp" data-href="/item_page.html">
+            <span>The Art of Tea</span>
+        </div>
+     </div>
+
+     <div class="story_container">
+        <div class="story">
+            <div class="title">A house of excellence since 1919</div>
+            <div class="description">For over a century, Betjeman & Barton has been selecting and blending exceptional teas, combining tradition and creativity. Heir to a unique expertise, the house offers single-origin teas and exclusive blends, enhanced with a touch of French elegance. An invitation to discover the art of tea in all its finesse.
+            </div>
+            <a href="/item_page.html">Discover</a>
+        </div>
+        <img src="/img/3_ef0652e2-c2c6-429e-ae7e-8aa2d526aa43.webp">
+     </div>
+
+     <!-- Bestseller item listing -->
+      <div class="best_seller_container">
+        <div class="best_seller">
+            <span>Best Seller</span>
+            <a href="/item_page.html">Discover <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="best_seller_items">
+            <a href="#"><img src="/img/1751.webp"></a>
+            <a href="#"><img src="/img/2835.webp"></a>
+            <a href="#"><img src="/img/1661.webp"></a>
+            <a href="#"><img src="/img/SD-boite_de_Noel_2025_-_ouverte.webp"></a>
+            <a href="#"><img src="/img/1677.webp"></a>
+            <a href="#"><img src="/img/1693.webp"></a>
+        </div>
+      </div>
+
+      <div class="news_letter">
+        <span>Newsletter</span>
+        <p>Sign up and find all our new products, selections and exceptional invitations</p>
+        <input type="text" id="email" placeholder="Drop your email here"></input>
+        <input class="submit" type="submit" value="Sign up for Newsletter"></input>
+      </div>
 </body>
+
+<footer class="footer" aria-label="Footer">
+  <div class="footer_top">
+    <section class="footer_brand">
+      <div class="brand_mark">
+        <span class="name">Betjeman & Barton</span>
+        <span class="year">Maison de Thé · Depuis 1919</span>
+      </div>
+      <p class="brand_description">
+        Selecting and blending exceptional teas for over a century—heritage craft with a touch of French elegance.
+      </p>
+      <div class="social">
+        <a href="#" aria-label="Instagram" class="social_media"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"  class="social_media"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" aria-label="X (Twitter)" class="social_media"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" aria-label="Pinterest" class="social_media"><i class="fa-brands fa-pinterest"></i></a>
+      </div>
+    </section>
+
+    <nav class="footer_og_tea" aria-label="Footer navigation">
+      <section class="footer_og">
+        <button class="footer_og_name" aria-expanded="false" aria-controls="fcol-shop">Shop</button>
+        <ul id="fcol-shop" class="og_list">
+          <li><a href="#">Black Tea</a></li>
+          <li><a href="#">Green Tea</a></li>
+          <li><a href="#">Herbal & Fruit</a></li>
+          <li><a href="#">Matcha</a></li>
+          <li><a href="#">Boxes & Gifts</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
+      </section>
+
+      <section class="footer_og">
+        <button class="footer_og_name" aria-expanded="false" aria-controls="fcol-house">The House</button>
+        <ul id="fcol-house" class="og_list">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Craft & Sourcing</a></li>
+          <li><a href="#">Boutiques</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </section>
+
+      <section class="footer_og">
+        <button class="footer_og_name" aria-expanded="false" aria-controls="fcol-help">Help</button>
+        <ul id="fcol-help" class="og_list">
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Order Tracking</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+
+  <div class="footer_bot">
+    <ul class="legal">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Cookie Settings</a></li>
+    </ul>
+    <div class="payments" aria-label="Payment methods">
+      <i class="fa-brands fa-cc-visa" aria-hidden="true"></i>
+      <i class="fa-brands fa-cc-mastercard" aria-hidden="true"></i>
+      <i class="fa-brands fa-cc-amex" aria-hidden="true"></i>
+      <i class="fa-brands fa-cc-apple-pay" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <div class="footer_legalnote">
+    © 2025 Betjeman & Barton. All rights reserved.
+  </div>
+</footer>
+
 </html>
+
+<script>
+(function(){
+  document.querySelectorAll('.footer_og_name').forEach(btn=>{
+    const list = document.getElementById(btn.getAttribute('aria-controls'));
+    if(!list) return;
+    btn.addEventListener('click', ()=>{
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      list.classList.toggle('is-open', !open);
+    });
+  });
+})();
+</script>
+
