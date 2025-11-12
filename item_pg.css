@@ -34,7 +34,7 @@
     height: 200px;
     font: 40px var(--font-body);
     text-align: center;
-    background-image: url("/img/Categorie_Boites_et_sachets_11915_R_S.webp");
+    background-image: url("img/Categorie_Boites_et_sachets_11915_R_S.webp");
     background-size: cover;
     background-position: 50% 82%;
     background-repeat: no-repeat;
