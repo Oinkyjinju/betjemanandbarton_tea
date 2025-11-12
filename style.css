@@ -30,7 +30,7 @@
 .hero{
     width: 100%;
     padding: 4% 5%;
-    background-image: url("/img/Banniere_AUTOMNE_bis.webp");
+    background-image: url("img/Banniere_AUTOMNE_bis.webp");
     background-size: cover;
     background-position: 50% 82%;
     background-repeat: no-repeat;
