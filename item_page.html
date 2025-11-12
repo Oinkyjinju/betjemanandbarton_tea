@@ -41,7 +41,7 @@ if (close) {
 <script>
   class SiteNav extends HTMLElement {
     async connectedCallback() {
-      const html = await (await fetch('/nav.html')).text();
+      const html = await (await fetch('nav.html')).text();
       this.innerHTML = html;
     }
   }
